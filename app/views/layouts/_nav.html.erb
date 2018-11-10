@@ -7,10 +7,11 @@
 
     <%# If Logged In%>
     <% if user_signed_in? %>
-      <%# Gifts%>
+      <%# Wishlist %>
       <li>
-        <%= link_to 'Gifts', gifts_path %>
+        <%= link_to 'Wishlist', gifts_path %>
       </li>
+      <%# Friends %>
       <li>
         <%= link_to 'Friends', '#' %>
       </li>
@@ -25,5 +26,13 @@
         <%= link_to 'Login/Register', new_user_session_path %>
       </li>
     <% end %>
+
+    <%# Search Bar %>
+    <li class="search-bar">
+      <%= form_tag 'search', method: :get do %>
+        <%= text_field_tag :term, params[:term], placeholder: 'Search for Friends' %>
+        <%# submit_tag 'Search' %>
+      <% end %>
+    </li>
   </ul>
 </nav>

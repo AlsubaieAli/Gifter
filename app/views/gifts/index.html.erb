@@ -1,11 +1,19 @@
-<h3>All Gifts</h3>
 
-<%= link_to 'Add New', new_gift_path %>
+<div class="container">
+  <h3>Your Wishlist</h3>
 
-<ul>
-<% @gifts.each do |gift| %>
-  <li>
-    <p><%= link_to gift.title, gift %></p>
-  </li>
-<% end %>
-</ul>
+  <%= link_to 'Add New', new_gift_path %>
+
+  <ul>
+    <% @gifts.each do |gift| %>
+      <li>
+        <p><%= link_to gift.title, gift %></p>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="container">
+  <h3>Gifts Recieved</h3>
+  <p>None</p>
+</div>

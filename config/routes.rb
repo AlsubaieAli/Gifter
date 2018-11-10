@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :gifts
 
+  get "/search", to: "home#search"
+
   get "/profile", to: "home#profile"
 
   root "home#index"

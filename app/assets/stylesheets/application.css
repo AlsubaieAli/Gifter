@@ -17,11 +17,19 @@
 @import "materialize";
 
 body {
-	background-color: lightgray;
+	background-color: #eeeeee;
+}
+
+header {
+	margin: 0;
+	padding: 20px 0;
+	background-color: #fff;
 }
 
 header h1,
 header h1 a {
+	text-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
+	margin: 0;
 	font-weight: bold;
 	color: rgb(148, 63, 63);
 }
@@ -30,6 +38,15 @@ header .slogan {
 	font-weight: normal;
 	font-size: 14px;
 	color: darkred;
+}
+
+.search-bar {
+	padding: 0 30px;
+	width: 300px;
+}
+
+.search-bar form input {
+	color: white;
 }
 
 .block {
