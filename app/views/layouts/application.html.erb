@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gifter</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <%# Header %>
+    <header>
+      <h1 class="center"><a href="/">Gifter</a> <span class="slogan">To find the perfect gift</span></h1>
+    </header>
+
+    <%# Navigation Bar %>
+    <%= render partial: 'layouts/nav' %>
+
+    <%# Login/Registeration Messages %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <%# Body %>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>

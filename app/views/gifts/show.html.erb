@@ -1,0 +1,15 @@
+
+<div class="card center padding">
+  <%# <a href="" class="float-r white red-circle cross">&cross;</a> %>
+  <div class="clear-fix">
+    <%= link_to '', @gift, method: :delete, data: {confirm: "Are you sure?"}, class: "float-r x-btn" %>
+  </div>
+  <h4><%= @gift.title %></h4>
+
+  <h5><%= @gift.description %></h5>
+
+  <p><%= @gift.link %></p>
+
+  <%= link_to 'Back', gifts_path %> |
+  <%= link_to 'Edit', edit_gift_path %>
+</div>

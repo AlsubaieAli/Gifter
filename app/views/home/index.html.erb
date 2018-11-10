@@ -1,0 +1,6 @@
+<% if user_signed_in? %>
+  <h3>Welcom <%= link_to current_user.name, '/profile' %></h3>
+<% else %>
+  <h3>Welcome to Gifter.</h3>
+  <p><%= link_to 'Register now', new_user_registration_path %> to surprise your friends with a gift from their wishlist, and also recieve your perfect gift.</p>
+<% end %>

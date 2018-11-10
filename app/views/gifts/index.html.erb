@@ -1,0 +1,11 @@
+<h3>All Gifts</h3>
+
+<%= link_to 'Add New', new_gift_path %>
+
+<ul>
+<% @gifts.each do |gift| %>
+  <li>
+    <p><%= link_to gift.title, gift %></p>
+  </li>
+<% end %>
+</ul>

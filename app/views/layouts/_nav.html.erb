@@ -1,0 +1,29 @@
+<nav>
+  <ul>
+    <%# Home %>
+    <li>
+      <%= link_to 'Home', '/' %>
+    </li>
+
+    <%# If Logged In%>
+    <% if user_signed_in? %>
+      <%# Gifts%>
+      <li>
+        <%= link_to 'Gifts', gifts_path %>
+      </li>
+      <li>
+        <%= link_to 'Friends', '#' %>
+      </li>
+      <%# Logout%>
+      <li>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+      </li>
+
+    <%# If Logged Out %>
+    <% else %>
+      <li>
+        <%= link_to 'Login/Register', new_user_session_path %>
+      </li>
+    <% end %>
+  </ul>
+</nav>

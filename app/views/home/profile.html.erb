@@ -1,0 +1,7 @@
+<div class="card center padding">
+  <h4><%= current_user.name %></h4>
+  <p>username: @<%= current_user.username %></p>
+  <p>Bio: <%= current_user.bio %></p>
+  <p>Link: <%= current_user.link %></p>
+  <%= link_to 'Update Profile', edit_user_registration_path  %>
+</div>
