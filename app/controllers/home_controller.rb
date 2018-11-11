@@ -11,13 +11,16 @@ class HomeController < ApplicationController
   end
 
   def unfriend
-    # relation = Relationship.find_by()
+    friend = current_user.active_relationships.find_by(followed_id: params[:id])
+    friend.destroy
+    redirect_to friends_path
   end
 
   def friends
-    @friends = current_user.active_relationships
+    @confirmed = (current_user.active_relationships.all).select { |f| f.followed.active_relationships.find_by(followed_id: current_user.id) != nil }
+    @pending = (current_user.active_relationships.all).select { |f| f.followed.active_relationships.find_by(followed_id: current_user.id) == nil }
+    @requests = (Relationship.all).select { |r| r.followed_id == current_user.id && current_user.active_relationships.find_by(followed_id: r.follower_id) == nil }
   end
-
 
   def search
     @term = params[:term]

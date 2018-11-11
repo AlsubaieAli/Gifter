@@ -1,14 +1,52 @@
+
+<% unless @requests.empty? %>
+  <h6>Requests</h6>
+  <ul>
+    <% @requests.each do |requested| %>
+      <li>
+        <div class="card grid-2">
+          <%= link_to requested.follower.name, requested.follower, class: 'list-item padding' %>
+          <div class="inline-div">
+            <%= button_to 'Accept', friend_path(requested.follower), method: :get %>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+
 <h3>Friends List</h3>
 
-<% if @friends.empty? %>
-  <p>No friends</p>
+<% if @confirmed.empty? %>
+  <p>No friends found</p>
 <% else %>
   <ul>
-    <li>
-      <% @friends.each do |f| %>
+    <% @confirmed.each do |f| %>
+      <li>
         <div class="card grid-2">
           <%= link_to f.followed.name, f.followed, class: 'list-item padding' %>
-          <%= button_to 'Unfriend', friend_path(f.followed), method: :delete, class: 'center-btn' %>
+          <div class="inline-div">
+            <%= button_to 'Unfriend', unfriend_path(f.followed), method: :delete, class: 'center-btn' %>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<% unless @pending.empty? %>
+  <p>Your pending Friend Requests</p>
+  <ul>
+    <li>
+      <% @pending.each do |f| %>
+        <div class="card grid-2">
+          <%= link_to f.followed.name, f.followed, class: 'list-item padding' %>
+          <div class="inline-div">
+            <%= button_to 'Cancel', unfriend_path(f.followed), method: :delete, class: 'center-btn' %>
+            <p>Pending</p>
+          </div>
         </div>
       <% end %>
     </li>

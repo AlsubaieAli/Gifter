@@ -4,7 +4,10 @@ class GiftsController < ApplicationController
   end
 
   def show
-    @gift = current_user.gifts.find_by(id: params[:id])
+    @accessable = false
+    @gift = Gift.find_by(id: params[:id])
+    @mine = true if @gift.user == current_user
+    @accessable = true if current_user.active_relationships.find_by(followed_id: @gift.user.id)
   end
 
   def new

@@ -61,6 +61,13 @@ header .slogan {
 	padding: 20px;
 }
 
+.inline-div {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	justify-content: center;
+	align-items: center;
+}
+
 .x-btn {
 	margin: 0;
 	padding: 0;
@@ -71,7 +78,7 @@ header .slogan {
 	min-width: 22px;
 	min-height: 22px;
 	border: 1px solid rgba(0, 0, 0, 0.3);
-	/* border-radius: 50%; */
+	border-radius: 50%;
 }
 
 .full-width {
@@ -85,6 +92,11 @@ header .slogan {
 .float-r {
 	float: right;
 }
+
+.float-l {
+	float: left;
+}
+
 .clear-fix:after {
 	content: "";
 	clear: both;

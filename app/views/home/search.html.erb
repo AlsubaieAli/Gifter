@@ -7,12 +7,22 @@
   <% else %>
     <ul>
     <% @result.each do |user| %>
-      <li>
-        <div class="card clear-fix grid-2">
-          <%= link_to user.name, user_path(user), class: 'list-item padding' %>
-          <%= button_to 'Add Friend', friend_path(user), method: :get, class: "center-btn" %>
-        </div>
-      </li>
+      <% if user != current_user %>
+        <li>
+          <div class="card clear-fix grid-2">
+            <%= link_to user.name, user_path(user), class: 'list-item padding' %>
+            <% if current_user.active_relationships.find_by(followed_id: user.id) == nil %>
+              <%= button_to 'Add Friend', friend_path(user), method: :get, class: "center-btn" %>
+            <% elsif current_user.active_relationships.find_by(followed_id: user.id) != nil %>
+              <% if user.active_relationships.find_by(followed_id: current_user.id) != nil %>
+                <p class="center">Friend</p>
+              <% else %>
+                <p class="center">Pending</p>
+              <% end %>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
     <% end %>
     </ul>
   <% end %>

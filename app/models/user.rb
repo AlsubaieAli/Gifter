@@ -14,6 +14,7 @@
 #  username               :string
 #  bio                    :text
 #  link                   :string
+#  image                  :string
 #
 
 class User < ApplicationRecord

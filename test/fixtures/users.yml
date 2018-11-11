@@ -14,6 +14,7 @@
 #  username               :string
 #  bio                    :text
 #  link                   :string
+#  image                  :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
