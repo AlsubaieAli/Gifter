@@ -1,0 +1,16 @@
+<h3>Friends List</h3>
+
+<% if @friends.empty? %>
+  <p>No friends</p>
+<% else %>
+  <ul>
+    <li>
+      <% @friends.each do |f| %>
+        <div class="card grid-2">
+          <%= link_to f.followed.name, f.followed, class: 'list-item padding' %>
+          <%= button_to 'Unfriend', friend_path(f.followed), method: :delete, class: 'center-btn' %>
+        </div>
+      <% end %>
+    </li>
+  </ul>
+<% end %>

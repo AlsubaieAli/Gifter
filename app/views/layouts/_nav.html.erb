@@ -13,7 +13,7 @@
       </li>
       <%# Friends %>
       <li>
-        <%= link_to 'Friends', '#' %>
+        <%= link_to 'Friends', friends_path %>
       </li>
       <%# Logout%>
       <li>
@@ -29,7 +29,7 @@
 
     <%# Search Bar %>
     <li class="search-bar">
-      <%= form_tag 'search', method: :get do %>
+      <%= form_tag '/search', method: :get do %>
         <%= text_field_tag :term, params[:term], placeholder: 'Search for Friends' %>
         <%# submit_tag 'Search' %>
       <% end %>

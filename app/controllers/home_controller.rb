@@ -5,6 +5,15 @@ class HomeController < ApplicationController
   def profile
   end
 
+  def friend
+    Relationship.create(follower_id: current_user.id, followed_id: params[:id])
+    redirect_to friends_path
+  end
+
+  def friends
+    @friends = current_user.active_relationships
+  end
+
   def search
     @term = params[:term]
     users = User.all

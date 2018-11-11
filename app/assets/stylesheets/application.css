@@ -90,3 +90,19 @@ header .slogan {
 	clear: both;
 	display: table;
 }
+
+.list-item {
+	display: block;
+}
+
+.grid-2 {
+	display: grid;
+	grid-template-columns: 4fr 1fr;
+	justify-content: center;
+	align-items: center;
+}
+
+.center-btn {
+	display: block;
+	margin: auto;
+}
