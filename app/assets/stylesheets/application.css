@@ -14,7 +14,7 @@
  *= require_self
 */
 
-/* @import "materialize"; */
+@import "materialize";
 
 body {
 	background-color: #eeeeee;
