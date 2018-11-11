@@ -10,9 +10,14 @@ class HomeController < ApplicationController
     redirect_to friends_path
   end
 
+  def unfriend
+    # relation = Relationship.find_by()
+  end
+
   def friends
     @friends = current_user.active_relationships
   end
+
 
   def search
     @term = params[:term]
