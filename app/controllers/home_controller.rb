@@ -1,5 +1,8 @@
 class HomeController < ApplicationController
   def index
+    if current_user
+      @reserved = current_user.reserves
+    end
   end
 
   def profile
@@ -22,6 +25,10 @@ class HomeController < ApplicationController
     @requests = (Relationship.all).select { |r| r.followed_id == current_user.id && current_user.active_relationships.find_by(followed_id: r.follower_id) == nil }
   end
 
+  def reserve
+    current_user.reserves.create(reserve_params)
+  end
+
   def search
     @term = params[:term]
     users = User.all
@@ -30,5 +37,11 @@ class HomeController < ApplicationController
       match.push(user) if (user.name.downcase.include? @term.downcase)
     end
     @result = match
+  end
+
+  private
+
+  def reserve_params
+    params.require(:reserve).permit(gift_id: params[:id])
   end
 end

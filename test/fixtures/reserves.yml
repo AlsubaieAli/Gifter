@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: reserves
+#
+#  id         :integer          not null, primary key
+#  user_id    :integer
+#  gift_id    :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  confirmed  :boolean          default(FALSE)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  gift_id: 1
+  confirmed: false
+
+two:
+  user_id: 1
+  gift_id: 1
+  confirmed: false

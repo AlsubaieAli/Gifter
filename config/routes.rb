@@ -14,5 +14,8 @@ Rails.application.routes.draw do
 
   get "/profile", to: "home#profile"
 
+  post "/reserve/:id", to: "home#reserve", as: "reserve"
+  get "/reserves", to: "home#reserves"
+
   root "home#index"
 end

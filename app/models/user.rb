@@ -24,6 +24,9 @@ class User < ApplicationRecord
   # Users may have many gift items in their wishlist
   has_many :gifts
 
+  # For reserving gifts
+  has_many :reserves, class_name: "Reserve"
+
   # Users can be friends
   has_many :active_relationships,
            class_name: "Relationship",
