@@ -1,7 +1,12 @@
 class HomeController < ApplicationController
   def index
     if current_user
-      @reserved = current_user.reserves
+      @reserved_from_me = []
+      current_user.gifts.each do |gift|
+        if Reserve.find_by(gift_id: gift.id) != nil
+          @reserved_from_me.push(gift)
+        end
+      end
     end
   end
 
@@ -26,7 +31,14 @@ class HomeController < ApplicationController
   end
 
   def reserve
-    current_user.reserves.create(reserve_params)
+    current_user.reserves.create(gift_id: params[:id])
+    redirect_to request.referer
+  end
+
+  def unreserve
+    reserved = current_user.reserves.find_by(gift_id: params[:id])
+    reserved.destroy
+    redirect_to request.referer
   end
 
   def search
@@ -37,11 +49,5 @@ class HomeController < ApplicationController
       match.push(user) if (user.name.downcase.include? @term.downcase)
     end
     @result = match
-  end
-
-  private
-
-  def reserve_params
-    params.require(:reserve).permit(gift_id: params[:id])
   end
 end

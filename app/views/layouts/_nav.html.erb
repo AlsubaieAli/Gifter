@@ -19,14 +19,6 @@
       <li>
         <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
       </li>
-
-    <%# If Logged Out %>
-    <% else %>
-      <li>
-        <%= link_to 'Login/Register', new_user_session_path %>
-      </li>
-    <% end %>
-
     <%# Search Bar %>
     <li class="search-bar">
       <%= form_tag '/search', method: :get do %>
@@ -34,5 +26,12 @@
         <%# submit_tag 'Search' %>
       <% end %>
     </li>
+
+    <%# If Logged Out %>
+    <% else %>
+      <li>
+        <%= link_to 'Login/Register', new_user_session_path %>
+      </li>
+    <% end %>
   </ul>
 </nav>

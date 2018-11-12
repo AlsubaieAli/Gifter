@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get "/profile", to: "home#profile"
 
   post "/reserve/:id", to: "home#reserve", as: "reserve"
-  get "/reserves", to: "home#reserves"
+  delete "/unreserve/:id", to: "home#unreserve", as: "unreserve"
 
   root "home#index"
 end

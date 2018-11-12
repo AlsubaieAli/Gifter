@@ -8,6 +8,8 @@ class GiftsController < ApplicationController
     @gift = Gift.find_by(id: params[:id])
     @mine = true if @gift.user == current_user
     @accessable = true if current_user.active_relationships.find_by(followed_id: @gift.user.id)
+    @reserved = false
+    @reserved = true if Reserve.find_by(gift_id: @gift.id)
   end
 
   def new

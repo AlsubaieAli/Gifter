@@ -14,7 +14,7 @@
  *= require_self
 */
 
-@import "materialize";
+/* @import "materialize"; */
 
 body {
 	background-color: #eeeeee;
@@ -38,6 +38,10 @@ header .slogan {
 	font-weight: normal;
 	font-size: 14px;
 	color: darkred;
+}
+
+nav {
+	background-color: rgb(148, 63, 63);
 }
 
 .thumbnail-pic {

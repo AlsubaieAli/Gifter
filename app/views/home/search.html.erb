@@ -12,6 +12,7 @@
           <div class="card clear-fix grid-3">
             <%= cl_image_tag user.image, class: 'thumbnail-pic' %>
             <%= link_to user.name, user_path(user), class: 'list-item padding' %>
+            <%# link_to 'Login to Add', new_user_session_path %>
             <% if current_user.active_relationships.find_by(followed_id: user.id) == nil %>
               <%= button_to 'Add Friend', friend_path(user), method: :get, class: "center-btn" %>
             <% elsif current_user.active_relationships.find_by(followed_id: user.id) != nil %>
