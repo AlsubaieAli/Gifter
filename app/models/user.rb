@@ -18,12 +18,19 @@
 #
 
 class User < ApplicationRecord
+  # Associate the image from uploader to user profile
+  mount_uploader :image, ImageUploader
+
+  # Users may have many gift items in their wishlist
   has_many :gifts
+
+  # Users can be friends
   has_many :active_relationships,
            class_name: "Relationship",
            foreign_key: "follower_id",
            dependent: :destroy
 
+  # Devise stuff
   devise :database_authenticatable,
          :registerable, :recoverable,
          :rememberable, :validatable
