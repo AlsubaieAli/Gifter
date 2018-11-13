@@ -4,7 +4,7 @@
     <h5 class="card-title text-center">Your wishlist:</h5>
     <%# If Empty %>
     <% if current_user.gifts.empty? %>
-      <p>Your list is empty</p>
+      <p class="text-center">Your list is empty</p>
     <% else %>
       <ul class="card-content">
         <% current_user.gifts.each do |gift| %>

@@ -1,6 +1,13 @@
 class GiftsController < ApplicationController
   def index
     @gifts = current_user.gifts
+    @confirmed = []
+    all_confirmed = Reserve.find_by(confirmed: true)
+    if all_confirmed != nil
+      all_confirmed.each do |reserve|
+        @confirmed.push(reserve) if reserve.gift.user == current_user
+      end
+    end
   end
 
   def show
@@ -18,6 +25,7 @@ class GiftsController < ApplicationController
 
   def create
     gift = current_user.gifts.create(gifts_params)
+    # raise "Some Error"
     redirect_to gift
   end
 

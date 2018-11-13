@@ -15,13 +15,13 @@ class HomeController < ApplicationController
 
   def friend
     Relationship.create(follower_id: current_user.id, followed_id: params[:id])
-    redirect_to friends_path
+    redirect_to request.referer
   end
 
   def unfriend
     friend = current_user.active_relationships.find_by(followed_id: params[:id])
     friend.destroy
-    redirect_to friends_path
+    redirect_to request.referer
   end
 
   def friends

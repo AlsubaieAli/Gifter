@@ -18,6 +18,17 @@
 <div class="container card padding margin-v">
   <h4 class="card-title">Gifts Recieved</h4>
   <div class="card-content">
-    <p>None</p>
+    <% if @confirmed.empty? %>
+      <p>None</p>
+    <% else %>
+      <ul>
+        <% @confirmed.each do |gift| %>
+          <li class="card grid-2-reverse">
+            <%= link_to gift.title, gift, class: "list-item padding" %>
+            <%= link_to gift.user.name, gift.user, class: "small-tag text-underline text-center" %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
   </div>
 </div>
