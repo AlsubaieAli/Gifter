@@ -1,8 +1,10 @@
-<div class="card center padding">
+<div class="card padding">
+  <div class="grid-2-reverse">
   <%= cl_image_tag current_user.image, class: 'profile-pic' %>
-  <h4><%= current_user.name %></h4>
+  <h4 class="text-center"><%= current_user.name %></h4>
+  </div>
   <p>username: @<%= current_user.username %></p>
   <p>Bio: <%= current_user.bio %></p>
   <p>Link: <%= current_user.link %></p>
-  <%= link_to 'Update Profile', edit_user_registration_path  %>
+  <%= link_to 'Update Profile', edit_user_registration_path, class: "list-item text-center" %>
 </div>

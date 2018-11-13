@@ -1,19 +1,20 @@
-
-<div class="card center padding">
-  <h4><%= @user.name %></h4>
-  <p>username: @<%= @user.username %></p>
-  <p>Bio: <%= @user.bio %></p>
-  <p>Link: <%= @user.link %></p>
-  <%= link_to 'Back', :back %>
-  <% if @isFriend %>
-    <h5>Wishlist</h5>
-    <ul>
-      <% @user.gifts.each do |gift| %>
-        <li>
-          <%= link_to gift.title, gift %>
-        </li>
-      <% end %>
-    </ul>
-  <% end %>
+<div class="container">
+  <div class="card center padding">
+    <h4><%= @user.name %></h4>
+    <p>username: @<%= @user.username %></p>
+    <p>Bio: <%= @user.bio %></p>
+    <p>Link: <%= @user.link %></p>
+    <%= link_to 'Back', :back %>
+    <% if @isFriend %>
+      <h5>Wishlist</h5>
+      <ul>
+        <% @user.gifts.each do |gift| %>
+          <li>
+            <%= link_to gift.title, gift %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
 </div>
 

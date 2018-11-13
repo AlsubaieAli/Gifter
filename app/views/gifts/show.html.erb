@@ -1,29 +1,38 @@
-
-<div class="card padding">
-  <%# if @mine %>
-    <%#<div class="clear-fix">
-      <%= link_to '', @gift, method: :delete, data: {confirm: "Are you sure you want to remove it?"}, class: "float-r x-btn" %>
-    <%#</div>
-  <% end %>
-  <% if @accessable || @mine %>
-    <h4><%= @gift.title %></h4>
-
-    <h5 class="card-title"><%= @gift.description %></h5>
-    <%= link_to 'See the link here', @gift.link %>
-    <% if @mine %>
-      <%= link_to 'Edit', edit_gift_path %> |
-      <%= link_to 'Remove', @gift, method: :delete, data: {confirm: "Are you sure you want to remove it?"} %>
-    <% else %>
-      <% if @reserved %>
-        <p>Reserved</p>
-        <% if current_user.reserves.find_by(gift_id: @gift.id) != nil %>
-          <%= button_to 'Unreserve', unreserve_path(@gift.id), method: :delete %>
-        <% end %>
-      <% else %>
-        <%= button_to 'Reserve', reserve_path(@gift) %>
-      <% end %>
+<div class="container">
+  <div class="card padding">
+    <%# if @mine %>
+      <%#<div class="clear-fix">
+        <%= link_to '', @gift, method: :delete, data: {confirm: "Are you sure you want to remove it?"}, class: "float-r x-btn" %>
+      <%#</div>
     <% end %>
-    <p><%= @gift.link %></p>
-  <% end %>
-  <%= link_to 'Back', :back %>
+    <% if @accessable || @mine %>
+      <h4><%= @gift.title %></h4>
+
+      <h5 class="card-title"><%= @gift.description %></h5>
+      <% if @gift.link %>
+        <p class="small-tag">no link provided</p>
+      <% else %>
+        <%= button_to 'See the link here', @gift.link, method: :get, class: "center-btn darkred btn-small margin-v-less" %>
+      <% end %>
+      <% if @mine %>
+        <div class="list-item text-center">
+          <%= link_to 'Edit', edit_gift_path %> |
+          <%= link_to 'Remove', @gift, method: :delete, data: {confirm: "Are you sure you want to remove it?"} %>
+        </div>
+      <% else %>
+        <% if @reserved %>
+          <p class="text-center">
+            Reserved
+            <% if current_user.reserves.find_by(gift_id: @gift.id) != nil %>
+              <%= link_to 'Unreserve', unreserve_path(@gift.id), method: :delete, class: "padding-h" %>
+            <% end %>
+          </p>
+        <% else %>
+          <%= button_to 'Reserve', reserve_path(@gift), class: "center-btn darkred btn-small margin-v-less" %>
+        <% end %>
+      <% end %>
+      <p><%= @gift.link %></p>
+    <% end %>
+    <%= link_to 'Back', :back %>
+  </div>
 </div>

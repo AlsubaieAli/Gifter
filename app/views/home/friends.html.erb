@@ -26,7 +26,7 @@
     <% @confirmed.each do |f| %>
       <li>
         <div class="card grid-3">
-          <%= cl_image_tag f.follower.image, class: 'thumbnail-pic' %>
+          <%= cl_image_tag f.followed.image, class: 'thumbnail-pic' %>
           <%= link_to f.followed.name, f.followed, class: 'list-item padding' %>
           <div class="inline-div padding-less">
             <%= button_to 'Unfriend', unfriend_path(f.followed), method: :delete, class: 'center-btn darkred accent-2 waves-light btn-small' %>

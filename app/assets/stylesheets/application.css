@@ -50,6 +50,11 @@ nav {
 	align-items: center;
 }
 
+form textarea {
+	border: none;
+	border-bottom: 1px solid gray;
+}
+
 .no-hover:hover {
 	background: none;
 }
@@ -91,25 +96,6 @@ nav form input {
 	display: block;
 }
 
-.margin-v {
-	margin: 50px auto;
-}
-.margin-v-less {
-	margin: 20px auto;
-}
-
-.padding {
-	padding: 20px;
-}
-
-.padding-h {
-	padding: 0 10px;
-}
-
-.padding-less {
-	padding: 10px;
-}
-
 .inline-div {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -134,7 +120,8 @@ nav form input {
 	background-color: rgb(148, 63, 63);
 }
 
-.darkred:hover {
+.darkred:hover,
+.darkred:active {
 	background-color: rgb(173, 95, 95);
 }
 
@@ -213,4 +200,23 @@ nav form input {
 	font-size: 12px;
 	color: black;
 	text-align: center;
+}
+
+.margin-v {
+	margin: 50px auto;
+}
+.margin-v-less {
+	margin: 20px auto;
+}
+
+.padding {
+	padding: 20px;
+}
+
+.padding-h {
+	padding: 0 10px;
+}
+
+.padding-less {
+	padding: 10px;
 }
