@@ -9,10 +9,10 @@
       <h4><%= @gift.title %></h4>
 
       <h5 class="card-title"><%= @gift.description %></h5>
-      <% if @gift.link %>
-        <p class="small-tag">no link provided</p>
+      <% unless @gift.link.empty? %>
+        <%= button_to 'See the link here', @gift.link, method: :get, class: "center-btn darkred btn-small margin-v-less", form: {target: '_blank'} %>
       <% else %>
-        <%= button_to 'See the link here', @gift.link, method: :get, class: "center-btn darkred btn-small margin-v-less" %>
+        <p class="small-tag">no link provided</p>
       <% end %>
       <% if @mine %>
         <div class="list-item text-center">
@@ -31,7 +31,6 @@
           <%= button_to 'Reserve', reserve_path(@gift), class: "center-btn darkred btn-small margin-v-less" %>
         <% end %>
       <% end %>
-      <p><%= @gift.link %></p>
     <% end %>
     <%= link_to 'Back', :back %>
   </div>
