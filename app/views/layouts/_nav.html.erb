@@ -4,7 +4,7 @@
     <%# If Logged In%>
     <% if user_signed_in? %>
       <%# Profile %>
-      <li>
+      <li class="profile-btn">
         <% if current_user.image.url %>
           <%= link_to cl_image_tag(current_user.image, class: 'small-profile-pic'), '/profile', class: "flex no-hover" %>
         <% else %>
@@ -23,17 +23,17 @@
       <li>
         <%= link_to 'Friends', friends_path %>
       </li>
+      <%# Search Bar %>
+      <li class="padding-h flex-2">
+        <%= form_tag '/search', method: :get do %>
+          <%= text_field_tag :term, params[:term], placeholder: 'Search for Friends' %>
+          <%# submit_tag 'Search' %>
+        <% end %>
+      </li>
       <%# Logout%>
-      <li>
+      <li class="logout-btn">
         <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
       </li>
-    <%# Search Bar %>
-    <li class="padding-h flex-2">
-      <%= form_tag '/search', method: :get do %>
-        <%= text_field_tag :term, params[:term], placeholder: 'Search for Friends' %>
-        <%# submit_tag 'Search' %>
-      <% end %>
-    </li>
 
     <%# If Logged Out %>
     <% else %>

@@ -45,14 +45,43 @@ nav {
 }
 
 nav ul li {
+	font-weight: bold;
 	text-align: center;
 	width: 100%;
+}
+
+nav ul li a {
+	font-size: 17px;
+}
+.logout-btn {
+	font-weight: bold;
+	background-color: rgba(255, 255, 255, 0.7);
+}
+.logout-btn a {
+	color: rgb(148, 63, 63);
+	-webkit-transition: color 0.2s, background-color 0.2s;
+	transition: color 0.2s, background-color 0.2s;
+}
+
+.logout-btn a:hover {
+	color: white;
+	background-color: rgba(148, 63, 63, 0.5);
 }
 
 .flex {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+.flex > * {
+	flex: 1;
+}
+.flex-2 {
+	flex: 2;
+}
+.profile-btn {
+	margin: 0 20px;
+	max-width: 50px;
 }
 
 .space-around {
@@ -98,6 +127,7 @@ form textarea {
 }
 
 nav form input {
+	text-align: center;
 	color: white;
 }
 
