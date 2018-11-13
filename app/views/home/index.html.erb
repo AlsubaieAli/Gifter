@@ -1,5 +1,6 @@
 <% if user_signed_in? %>
-  <h3 class="margin-v text-center">Welcome <%= current_user.name %></h3>
+<div class="container">
+  <h3 class="margin-v">Welcome <%= current_user.name %></h3>
   <div class="card padding-less margin-v">
     <h5 class="card-title text-center">Your wishlist:</h5>
     <%# If Empty %>
@@ -48,6 +49,7 @@
     </div>
   <% end %>
 
+</div>
 <% else %>
   <h3>Welcome to Gifter.</h3>
   <p><%= link_to 'Register now', new_user_registration_path %> to surprise your friends with a gift from their wishlist, and also recieve your perfect gift.</p>

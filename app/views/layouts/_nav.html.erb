@@ -1,5 +1,5 @@
 <nav>
-  <ul class="flex">
+  <ul class="flex space-around">
 
     <%# If Logged In%>
     <% if user_signed_in? %>
@@ -28,7 +28,7 @@
         <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
       </li>
     <%# Search Bar %>
-    <li class="padding-h">
+    <li class="padding-h flex-2">
       <%= form_tag '/search', method: :get do %>
         <%= text_field_tag :term, params[:term], placeholder: 'Search for Friends' %>
         <%# submit_tag 'Search' %>
