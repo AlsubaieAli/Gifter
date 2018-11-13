@@ -1,7 +1,7 @@
 
 <div class="container">
   <h3>Searching for <%= @term %></h3>
-  <p>resaults:</p>
+  <%# <p>resaults:</p> %>
   <% if @result.empty? %>
     <p>No match found</p>
   <% else %>
@@ -14,7 +14,9 @@
             <%= link_to user.name, user_path(user), class: 'list-item padding' %>
             <%# link_to 'Login to Add', new_user_session_path %>
             <% if current_user.active_relationships.find_by(followed_id: user.id) == nil %>
-              <%= button_to 'Add Friend', friend_path(user), method: :get, class: "center-btn" %>
+              <span class="padding-less">
+                <%= button_to 'Add Friend', friend_path(user), method: :get, class: "darkred accent-2 waves-light btn-small center-btn" %>
+              </span>
             <% elsif current_user.active_relationships.find_by(followed_id: user.id) != nil %>
               <% if user.active_relationships.find_by(followed_id: current_user.id) != nil %>
                 <p class="center">Friend</p>

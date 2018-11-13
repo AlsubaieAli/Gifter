@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    if current_user
+    if user_signed_in?
       @reserved_from_me = []
       current_user.gifts.each do |gift|
         if Reserve.find_by(gift_id: gift.id) != nil

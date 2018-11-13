@@ -1,5 +1,5 @@
 
-<div class="card center padding">
+<div class="card padding">
   <%# if @mine %>
     <%#<div class="clear-fix">
       <%= link_to '', @gift, method: :delete, data: {confirm: "Are you sure you want to remove it?"}, class: "float-r x-btn" %>
@@ -8,8 +8,8 @@
   <% if @accessable || @mine %>
     <h4><%= @gift.title %></h4>
 
-    <h5><%= @gift.description %></h5>
-
+    <h5 class="card-title"><%= @gift.description %></h5>
+    <%= link_to 'See the link here', @gift.link %>
     <% if @mine %>
       <%= link_to 'Edit', edit_gift_path %> |
       <%= link_to 'Remove', @gift, method: :delete, data: {confirm: "Are you sure you want to remove it?"} %>

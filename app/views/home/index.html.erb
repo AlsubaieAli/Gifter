@@ -1,9 +1,54 @@
 <% if user_signed_in? %>
-  <h3>Welcom <%= link_to current_user.name, '/profile' %></h3>
+  <h3 class="margin-v text-center">Welcome <%= current_user.name %></h3>
+  <div class="card padding-less margin-v">
+    <h5 class="card-title text-center">Your wishlist:</h5>
+    <%# If Empty %>
+    <% if current_user.gifts.empty? %>
+      <p>Your list is empty</p>
+    <% else %>
+      <ul class="card-content">
+        <% current_user.gifts.each do |gift| %>
+          <li class="card">
+            <%= link_to gift.title, gift, class: "list-item  padding-less" %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+  <div class="card padding-less">
+    <h5 class="card-title text-center">Items you picked from friends' wishlist:</h5>
+    <%# If Empty %>
+    <% if current_user.reserves.empty? %>
+      <p class="text-center">You did not pick any item</p>
+    <% else %>
+      <ul class="card-content">
+        <% current_user.reserves.each do |reserved| %>
+          <li class="card grid-2">
+            <%= link_to reserved.gift.title, reserved.gift, class: "list-item padding-less" %>
+            <%= link_to 'Taken from ' + reserved.gift.user.name, reserved.gift.user, class: "list-item small-tag text-underline" %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+  <%# If Empty %>
+  <% unless @reserved_from_me.empty? %>
+    <div class="card padding-less">
+      <h5 class="card-title text-center">Picked from my wishlist:</h5>
+      <ul class="card-content">
+        <% @reserved_from_me.each do |gift| %>
+          <li class="card grid-2">
+            <%= link_to gift.title, gift, class: "list-item padding-less" %>
+            <p class="small-tag">Anonymous</p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
 <% else %>
   <h3>Welcome to Gifter.</h3>
   <p><%= link_to 'Register now', new_user_registration_path %> to surprise your friends with a gift from their wishlist, and also recieve your perfect gift.</p>
 <% end %>
-
-<%# @reserved.last.user.name %>
-<%# @reserved.last.gift.title %>

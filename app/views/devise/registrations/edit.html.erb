@@ -20,7 +20,7 @@
 
   <div class="field">
     <%= f.label :link %><br />
-    <%= f.text_field :link, autofocus: true, autocomplete: "link" %>
+    <%= f.url_field :link, autofocus: true, autocomplete: "link" %>
   </div>
 
   <div class="field">
@@ -56,13 +56,18 @@
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
+  <div class="margin-v-less actions">
+    <%= f.submit "Update", class: 'center-btn darkred btn-small' %>
+  </div>
+
+  <div class="field margin-v-less text-center">
+    <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'text-red' %>
   </div>
 <% end %>
 
+<%#
 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+<%#
 <%= link_to "Back", :back %>

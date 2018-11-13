@@ -1,12 +1,20 @@
 <nav>
-  <ul>
-    <%# Home %>
-    <li>
-      <%= link_to 'Home', '/' %>
-    </li>
+  <ul class="flex">
 
     <%# If Logged In%>
     <% if user_signed_in? %>
+      <%# Profile %>
+      <li>
+        <% if current_user.image.url %>
+          <%= link_to cl_image_tag(current_user.image, class: 'small-profile-pic'), '/profile', class: "flex no-hover" %>
+        <% else %>
+          <%= link_to image_tag('default-profile-pic.jpg', class: 'small-profile-pic'), '/profile', class: "flex no-hover" %>
+        <% end %>
+      </li>
+      <%# Home %>
+      <li>
+        <%= link_to 'Home', '/' %>
+      </li>
       <%# Wishlist %>
       <li>
         <%= link_to 'Wishlist', gifts_path %>
@@ -20,7 +28,7 @@
         <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
       </li>
     <%# Search Bar %>
-    <li class="search-bar">
+    <li class="padding-h">
       <%= form_tag '/search', method: :get do %>
         <%= text_field_tag :term, params[:term], placeholder: 'Search for Friends' %>
         <%# submit_tag 'Search' %>
@@ -29,6 +37,10 @@
 
     <%# If Logged Out %>
     <% else %>
+      <%# Home %>
+      <li>
+        <%= link_to 'Home', '/' %>
+      </li>
       <li>
         <%= link_to 'Login/Register', new_user_session_path %>
       </li>
