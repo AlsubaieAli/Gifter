@@ -14,5 +14,4 @@
 class Gift < ApplicationRecord
   belongs_to :user
   has_one :reserve
-  # belongs_to :reserve
 end
