@@ -24,6 +24,7 @@ header {
 	margin: 0;
 	padding: 20px 0;
 	background-color: #fff;
+	position: relative;
 }
 
 header h1,
@@ -124,6 +125,26 @@ form textarea {
 
 .profile-pic {
 	width: 100px;
+}
+
+.social {
+	padding: 10px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+.social a {
+	padding: 5px;
+	color: rgb(112, 0, 0);
+
+	-webkit-transition: transform 0.3s;
+	transition: transform 0.2s;
+}
+.social a:hover {
+	transform: scale(1.2);
 }
 
 nav form input {
