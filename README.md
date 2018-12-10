@@ -30,7 +30,7 @@ Gifter is the social network platform where users can have and share their wishl
 - Ali Alsubaie
 
 ## Credits
-- Jack
+- Jack Jeffress
 - Moath Althawad
 - Misk-GA WDI 1 Course
 - Class of WDI!!
